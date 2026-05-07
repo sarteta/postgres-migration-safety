@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "postgres-migration-safety"
+version = "0.1.0"
+description = "Linter for Postgres schema migrations. Catches unsafe patterns (CREATE INDEX without CONCURRENTLY, ADD NOT NULL without DEFAULT, ADD FK without NOT VALID, etc) before they hit production."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Santiago Arteta"}]
+keywords = ["postgres", "postgresql", "migration", "linter", "ddl", "sre"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Database",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+]
+
+[project.scripts]
+pgmig = "pg_migration_safety.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sarteta/postgres-migration-safety"
+Issues = "https://github.com/sarteta/postgres-migration-safety/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
