@@ -1,5 +1,7 @@
 # postgres-migration-safety
 
+[![tests](https://github.com/sarteta/postgres-migration-safety/actions/workflows/tests.yml/badge.svg)](https://github.com/sarteta/postgres-migration-safety/actions/workflows/tests.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+
 A linter for Postgres schema migrations. Reads a `.sql` file, flags the
 patterns that lock tables, rewrite tables, or break running app instances.
 
